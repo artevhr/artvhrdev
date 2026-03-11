@@ -6,11 +6,8 @@
   <title>ARTVHR DEV — Создание и улучшение сайтов</title>
   <meta name="description" content="Создаю и улучшаю сайты для бизнеса. Чистый дизайн, продуманная структура — быстро и без воды." />
 
-  <!-- Favicon — инициалы AD на тёмном фоне -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a1814'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia%2C serif' font-size='13' font-weight='400' letter-spacing='0.5' fill='%23f7f5f2'%3EAD%3C/text%3E%3C/svg%3E" />
 
-  <!-- Open Graph — превью в Telegram, VK, WhatsApp -->
-  <!-- Замени YOUR_GITHUB_USERNAME и YOUR_REPO на свои -->
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/" />
   <meta property="og:title"       content="ARTVHR DEV — Создание и улучшение сайтов" />
@@ -20,7 +17,6 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:locale"      content="ru_RU" />
 
-  <!-- Twitter / X Card -->
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:title"       content="ARTVHR DEV — Создание и улучшение сайтов" />
   <meta name="twitter:description" content="Создаю и улучшаю сайты для бизнеса. Чистый дизайн, быстрая загрузка, результат." />
@@ -28,7 +24,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Geologica:wght@300;400;500&display=swap" rel="stylesheet" />
-  <!-- Yandex.Metrica — замени XXXXXXXX на номер своего счётчика -->
+
   <script type="text/javascript">
     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
     m[i].l=1*new Date();
@@ -66,7 +62,6 @@
 
     a { text-decoration: none; color: inherit; }
 
-    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -85,7 +80,6 @@
     .nav-cta { font-size: 0.78rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
     .nav-cta:hover { color: var(--accent); border-color: var(--accent); }
 
-    /* HERO */
     .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 67px; }
     .hero-left {
       padding: 80px 60px; display: flex; flex-direction: column; justify-content: center;
@@ -121,14 +115,12 @@
     .sn { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; line-height: 1; }
     .sl { font-size: 0.78rem; color: var(--muted); text-align: right; line-height: 1.5; max-width: 130px; }
 
-    /* TICKER */
     .ticker { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 14px 0; background: var(--white); }
     .ticker-track { display: flex; width: max-content; animation: ticker 22s linear infinite; }
     .ticker-item { display: flex; align-items: center; gap: 36px; padding: 0 36px; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
     .tdot { width: 3px; height: 3px; border-radius: 50%; background: var(--accent); }
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    /* SHARED */
     .sec { padding: 96px 60px; }
     .s-tag {
       font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
@@ -137,8 +129,7 @@
     .s-tag::before { content: ''; width: 22px; height: 1px; background: var(--muted); }
     h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 4rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; }
     h2 em { font-style: italic; }
-
-    /* SERVICES */
+    
     #services { background: var(--white); }
     .srv-head { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 64px; }
     .srv-sub { font-size: 0.92rem; color: var(--muted); line-height: 1.8; max-width: 360px; }
@@ -156,7 +147,6 @@
     .srv-b p { font-size: 0.85rem; color: var(--muted); line-height: 1.75; max-width: 500px; }
     .srv-t { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-top: 5px; white-space: nowrap; }
 
-    /* PORTFOLIO */
     #portfolio { background: var(--bg); }
     .port-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 52px; }
     .works { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
@@ -165,7 +155,6 @@
     .wthumb { aspect-ratio: 16/10; position: relative; overflow: hidden; }
     .wthumb-inner { width: 100%; height: 100%; }
 
-    /* Maxweqq visual */
     .t-mwq { background: #0c0c10; width: 100%; height: 100%; position: relative; display: flex; align-items: center; justify-content: center; }
     .t-mwq-grid { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px; }
     .t-mwq-cell { }
@@ -179,7 +168,6 @@
     .t-mwq-label .mt em { font-style: italic; color: rgba(200,169,110,0.9); }
     .t-mwq-label .ms { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.22); margin-top: 8px; display: block; }
 
-    /* Soon visual */
     .t-soon { background: var(--card-bg); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
     .t-soon span { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--line); }
 
@@ -197,7 +185,6 @@
     .wtag { font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); padding: 3px 10px; }
     .wcard.soon { opacity: 0.45; pointer-events: none; }
 
-    /* PROCESS */
     #process { background: var(--white); }
     .proc-grid { display: grid; grid-template-columns: repeat(4,1fr); margin-top: 60px; border-top: 1px solid var(--line); }
     .proc-col { padding: 36px 32px 36px 0; border-right: 1px solid var(--line); }
@@ -207,7 +194,6 @@
     .proc-col h3 { font-size: 0.92rem; font-weight: 400; margin-bottom: 10px; }
     .proc-col p { font-size: 0.83rem; color: var(--muted); line-height: 1.75; }
 
-    /* CTA */
     #contact { background: var(--ink); padding: 120px 60px; text-align: center; display: flex; flex-direction: column; align-items: center; }
     #contact .s-tag { color: rgba(255,255,255,0.25); justify-content: center; }
     #contact .s-tag::before { background: rgba(255,255,255,0.2); }
@@ -258,7 +244,6 @@
   <a href="https://t.me/YOUR_TG" target="_blank" class="nav-cta">Написать</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-left">
     <div class="eyebrow">Веб-разработчик</div>
@@ -287,7 +272,6 @@
   </div>
 </div>
 
-<!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
     <div class="ticker-item"><span class="tdot"></span>Лендинги</div>
@@ -305,7 +289,6 @@
   </div>
 </div>
 
-<!-- SERVICES -->
 <section id="services">
   <div class="sec">
     <div class="srv-head reveal">
@@ -352,7 +335,6 @@
   </div>
 </section>
 
-<!-- PORTFOLIO -->
 <section id="portfolio">
   <div class="sec">
     <div class="port-head reveal">
@@ -364,7 +346,6 @@
     </div>
     <div class="works reveal">
 
-      <!-- Maxweqq -->
       <a href="https://artevhr.github.io/maxweqq/" target="_blank" class="wcard">
         <div class="wthumb">
           <div class="wthumb-inner">
@@ -386,7 +367,6 @@
         </div>
       </a>
 
-      <!-- Placeholder -->
       <div class="wcard soon">
         <div class="wthumb">
           <div class="wthumb-inner">
@@ -407,7 +387,6 @@
   </div>
 </section>
 
-<!-- PROCESS -->
 <section id="process">
   <div class="sec">
     <div class="reveal">
@@ -439,7 +418,6 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="s-tag reveal">Контакты</div>
   <h2 class="reveal">Готовы<br /><em>начать?</em></h2>
@@ -449,7 +427,7 @@
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-2.01 9.47c-.146.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.873.75z"/></svg>
       Telegram
     </a>
-    <a href="https://instagram.com/artvhe_dev" target="_blank" class="cbtn ig">
+    <a href="https://instagram.com/artvhr_dev" target="_blank" class="cbtn ig">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
       Instagram
     </a>
@@ -457,7 +435,7 @@
 </section>
 
 <footer>
-  <div class="fl">ARTVHR DEV</div>
+  <div class="fl">ARTVHR DEV.by</div>
   <div class="fn">© 2026 — Веб-разработка</div>
 </footer>
 
