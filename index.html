@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARTVHR DEV — Создание и улучшение сайтов</title>
+  <meta name="description" content="Создаю и улучшаю сайты для бизнеса. Чистый дизайн, продуманная структура — быстро и без воды." />
+
+  <!-- Favicon — инициалы AD на тёмном фоне -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a1814'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia%2C serif' font-size='13' font-weight='400' letter-spacing='0.5' fill='%23f7f5f2'%3EAD%3C/text%3E%3C/svg%3E" />
+
+  <!-- Open Graph — превью в Telegram, VK, WhatsApp -->
+  <!-- Замени YOUR_GITHUB_USERNAME и YOUR_REPO на свои -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/" />
+  <meta property="og:title"       content="ARTVHR DEV — Создание и улучшение сайтов" />
+  <meta property="og:description" content="Создаю и улучшаю сайты для бизнеса. Чистый дизайн, быстрая загрузка, результат." />
+  <meta property="og:image"       content="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/og-image.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"      content="ru_RU" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="ARTVHR DEV — Создание и улучшение сайтов" />
+  <meta name="twitter:description" content="Создаю и улучшаю сайты для бизнеса. Чистый дизайн, быстрая загрузка, результат." />
+  <meta name="twitter:image"       content="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Geologica:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- Yandex.Metrica — замени XXXXXXXX на номер своего счётчика -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');
+    ym(XXXXXXXX,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXXX" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f5f2;
+      --white: #ffffff;
+      --ink: #1a1814;
+      --ink2: #3d3a35;
+      --muted: #9a9490;
+      --line: #e2ded8;
+      --accent: #c8a96e;
+      --card-bg: #f0ece6;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Geologica', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 60px;
+      background: rgba(247,245,242,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400; font-size: 1.2rem; letter-spacing: 0.04em;
+    }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 0.78rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); font-weight: 400; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { font-size: 0.78rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .nav-cta:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 67px; }
+    .hero-left {
+      padding: 80px 60px; display: flex; flex-direction: column; justify-content: center;
+      border-right: 1px solid var(--line);
+    }
+    .hero-right {
+      padding: 80px 60px; display: flex; flex-direction: column; justify-content: flex-end;
+      background: var(--card-bg); position: relative; overflow: hidden;
+    }
+    .eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+      margin-bottom: 28px; display: flex; align-items: center; gap: 14px;
+    }
+    .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--muted); flex-shrink: 0; }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 5.5rem); font-weight: 300;
+      line-height: 1.05; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 32px;
+    }
+    h1 em { font-style: italic; }
+    .hero-desc { font-size: 0.95rem; color: var(--ink2); line-height: 1.8; max-width: 400px; margin-bottom: 48px; }
+    .hero-actions { display: flex; align-items: center; gap: 32px; }
+    .btn-main { background: var(--ink); color: var(--white); padding: 14px 34px; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 400; transition: background 0.2s; display: inline-block; }
+    .btn-main:hover { background: var(--ink2); }
+    .link-arr { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
+    .link-arr::after { content: '→'; transition: transform 0.2s; }
+    .link-arr:hover { color: var(--ink); }
+    .link-arr:hover::after { transform: translateX(4px); }
+
+    .stats-v { display: flex; flex-direction: column; position: relative; z-index: 1; }
+    .stat-row { padding: 24px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: baseline; }
+    .stat-row:last-child { border-bottom: 1px solid var(--line); }
+    .sn { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; line-height: 1; }
+    .sl { font-size: 0.78rem; color: var(--muted); text-align: right; line-height: 1.5; max-width: 130px; }
+
+    /* TICKER */
+    .ticker { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 14px 0; background: var(--white); }
+    .ticker-track { display: flex; width: max-content; animation: ticker 22s linear infinite; }
+    .ticker-item { display: flex; align-items: center; gap: 36px; padding: 0 36px; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    .tdot { width: 3px; height: 3px; border-radius: 50%; background: var(--accent); }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* SHARED */
+    .sec { padding: 96px 60px; }
+    .s-tag {
+      font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+      display: flex; align-items: center; gap: 14px; margin-bottom: 48px;
+    }
+    .s-tag::before { content: ''; width: 22px; height: 1px; background: var(--muted); }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 4rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; }
+    h2 em { font-style: italic; }
+
+    /* SERVICES */
+    #services { background: var(--white); }
+    .srv-head { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 64px; }
+    .srv-sub { font-size: 0.92rem; color: var(--muted); line-height: 1.8; max-width: 360px; }
+    .srv-list { border-top: 1px solid var(--line); }
+    .srv-row {
+      display: grid; grid-template-columns: 44px 1fr auto;
+      gap: 28px; padding: 32px 0; border-bottom: 1px solid var(--line);
+      position: relative; transition: padding-left 0.3s;
+    }
+    .srv-row::after { content: ''; position: absolute; left: -60px; right: -60px; top: 0; bottom: 0; background: var(--card-bg); opacity: 0; transition: opacity 0.25s; z-index: 0; }
+    .srv-row:hover::after { opacity: 1; }
+    .srv-row > * { position: relative; z-index: 1; }
+    .srv-n { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; color: var(--muted); padding-top: 3px; }
+    .srv-b h3 { font-size: 1rem; font-weight: 400; margin-bottom: 8px; }
+    .srv-b p { font-size: 0.85rem; color: var(--muted); line-height: 1.75; max-width: 500px; }
+    .srv-t { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-top: 5px; white-space: nowrap; }
+
+    /* PORTFOLIO */
+    #portfolio { background: var(--bg); }
+    .port-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 52px; }
+    .works { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .wcard { display: block; background: var(--card-bg); overflow: hidden; transition: background 0.25s; }
+    .wcard:hover { background: var(--line); }
+    .wthumb { aspect-ratio: 16/10; position: relative; overflow: hidden; }
+    .wthumb-inner { width: 100%; height: 100%; }
+
+    /* Maxweqq visual */
+    .t-mwq { background: #0c0c10; width: 100%; height: 100%; position: relative; display: flex; align-items: center; justify-content: center; }
+    .t-mwq-grid { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px; }
+    .t-mwq-cell { }
+    .t-mwq-cell:nth-child(1) { background: #1a1225; }
+    .t-mwq-cell:nth-child(2) { background: #131318; }
+    .t-mwq-cell:nth-child(3) { background: #0f1820; }
+    .t-mwq-cell:nth-child(4) { background: #181520; grid-column: span 2; }
+    .t-mwq-cell:nth-child(5) { background: #1a1028; }
+    .t-mwq-label { position: relative; z-index: 2; text-align: center; }
+    .t-mwq-label .mt { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 300; color: rgba(255,255,255,0.85); letter-spacing: 0.02em; }
+    .t-mwq-label .mt em { font-style: italic; color: rgba(200,169,110,0.9); }
+    .t-mwq-label .ms { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.22); margin-top: 8px; display: block; }
+
+    /* Soon visual */
+    .t-soon { background: var(--card-bg); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+    .t-soon span { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--line); }
+
+    .whover { position: absolute; inset: 0; background: rgba(26,24,20,0.72); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
+    .wcard:hover .whover { opacity: 1; }
+    .whover-t { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; display: flex; align-items: center; gap: 8px; }
+    .whover-t::after { content: '↗'; }
+
+    .wmeta { padding: 26px 28px 30px; }
+    .wmeta-top { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; }
+    .wname { font-size: 0.95rem; font-weight: 400; }
+    .wyear { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; color: var(--muted); }
+    .wdesc { font-size: 0.83rem; color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
+    .wtags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .wtag { font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); padding: 3px 10px; }
+    .wcard.soon { opacity: 0.45; pointer-events: none; }
+
+    /* PROCESS */
+    #process { background: var(--white); }
+    .proc-grid { display: grid; grid-template-columns: repeat(4,1fr); margin-top: 60px; border-top: 1px solid var(--line); }
+    .proc-col { padding: 36px 32px 36px 0; border-right: 1px solid var(--line); }
+    .proc-col:last-child { border-right: none; padding-right: 0; }
+    .proc-col:not(:first-child) { padding-left: 32px; }
+    .pn { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--line); line-height: 1; margin-bottom: 28px; }
+    .proc-col h3 { font-size: 0.92rem; font-weight: 400; margin-bottom: 10px; }
+    .proc-col p { font-size: 0.83rem; color: var(--muted); line-height: 1.75; }
+
+    /* CTA */
+    #contact { background: var(--ink); padding: 120px 60px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    #contact .s-tag { color: rgba(255,255,255,0.25); justify-content: center; }
+    #contact .s-tag::before { background: rgba(255,255,255,0.2); }
+    #contact h2 { color: var(--white); margin-bottom: 18px; font-size: clamp(2.4rem,5vw,5rem); }
+    .cta-sub { font-size: 0.95rem; color: rgba(255,255,255,0.38); max-width: 400px; line-height: 1.8; margin-bottom: 52px; }
+    .cta-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+    .cbtn { display: flex; align-items: center; gap: 11px; padding: 14px 32px; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 400; transition: all 0.25s; border: 1px solid transparent; }
+    .cbtn svg { width: 17px; height: 17px; flex-shrink: 0; }
+    .cbtn.tg { background: var(--white); color: var(--ink); }
+    .cbtn.tg:hover { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.25); }
+    .cbtn.ig { background: transparent; color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.12); }
+    .cbtn.ig:hover { color: var(--white); border-color: rgba(255,255,255,0.35); }
+
+    footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.07); padding: 22px 60px; display: flex; align-items: center; justify-content: space-between; }
+    .fl { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: rgba(255,255,255,0.35); letter-spacing: 0.04em; }
+    .fn { font-size: 0.72rem; color: rgba(255,255,255,0.2); letter-spacing: 0.06em; }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.75s ease, transform 0.75s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 56px 20px; border-right: none; border-bottom: 1px solid var(--line); }
+      .hero-right { padding: 48px 20px; }
+      .big-bg-num { font-size: 8rem; }
+      .sec { padding: 72px 20px; }
+      .srv-head { grid-template-columns: 1fr; gap: 20px; }
+      .srv-row::after { left: -20px; right: -20px; }
+      .works { grid-template-columns: 1fr; }
+      .proc-grid { grid-template-columns: 1fr 1fr; }
+      .proc-col { border-right: none !important; padding-left: 0 !important; padding-right: 0 !important; border-bottom: 1px solid var(--line); }
+      #contact { padding: 80px 20px; }
+      footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">ARTVHR DEV</div>
+  <ul class="nav-links">
+    <li><a href="#services">Услуги</a></li>
+    <li><a href="#portfolio">Работы</a></li>
+    <li><a href="#process">Процесс</a></li>
+  </ul>
+  <a href="https://t.me/YOUR_TG" target="_blank" class="nav-cta">Написать</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="eyebrow">Веб-разработчик</div>
+    <h1>Сайты,<br />которые<br /><em>работают</em></h1>
+    <p class="hero-desc">Создаю и улучшаю сайты для бизнеса. Чистый дизайн, продуманная структура — без воды и лишних слов.</p>
+    <div class="hero-actions">
+      <a href="https://t.me/YOUR_TG" target="_blank" class="btn-main">Обсудить проект</a>
+      <a href="#portfolio" class="link-arr">Работы</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stats-v">
+      <div class="stat-row">
+        <div class="sn">5+</div>
+        <div class="sl">Готовых<br />проектов</div>
+      </div>
+      <div class="stat-row">
+        <div class="sn">3–7</div>
+        <div class="sl">Дней<br />на проект</div>
+      </div>
+      <div class="stat-row">
+        <div class="sn">100%</div>
+        <div class="sl">Довольных<br />клиентов</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item"><span class="tdot"></span>Лендинги</div>
+    <div class="ticker-item"><span class="tdot"></span>Портфолио</div>
+    <div class="ticker-item"><span class="tdot"></span>Корпоративные сайты</div>
+    <div class="ticker-item"><span class="tdot"></span>Редизайн</div>
+    <div class="ticker-item"><span class="tdot"></span>Оптимизация</div>
+    <div class="ticker-item"><span class="tdot"></span>Адаптивная вёрстка</div>
+    <div class="ticker-item"><span class="tdot"></span>Лендинги</div>
+    <div class="ticker-item"><span class="tdot"></span>Портфолио</div>
+    <div class="ticker-item"><span class="tdot"></span>Корпоративные сайты</div>
+    <div class="ticker-item"><span class="tdot"></span>Редизайн</div>
+    <div class="ticker-item"><span class="tdot"></span>Оптимизация</div>
+    <div class="ticker-item"><span class="tdot"></span>Адаптивная вёрстка</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="sec">
+    <div class="srv-head reveal">
+      <div>
+        <div class="s-tag">Услуги</div>
+        <h2>Что<br /><em>делаю</em></h2>
+      </div>
+      <p class="srv-sub">От идеи до готового сайта — всё в одних руках. Без посредников и размытой ответственности.</p>
+    </div>
+    <div class="srv-list reveal">
+      <div class="srv-row">
+        <div class="srv-n">01</div>
+        <div class="srv-b">
+          <h3>Сайт с нуля</h3>
+          <p>Лендинги, визитки, портфолио, корпоративные сайты. Дизайн под ваш бизнес, быстрая загрузка, чёткий результат.</p>
+        </div>
+        <div class="srv-t">Под ключ</div>
+      </div>
+      <div class="srv-row">
+        <div class="srv-n">02</div>
+        <div class="srv-b">
+          <h3>Редизайн</h3>
+          <p>Есть сайт, но он устарел или не нравится? Обновлю дизайн и структуру — современно, без потери контента.</p>
+        </div>
+        <div class="srv-t">Улучшение</div>
+      </div>
+      <div class="srv-row">
+        <div class="srv-n">03</div>
+        <div class="srv-b">
+          <h3>Оптимизация и доработка</h3>
+          <p>Ускорю загрузку, исправлю баги, улучшу адаптивность и SEO. Сайт станет быстрее и заметнее.</p>
+        </div>
+        <div class="srv-t">Техника</div>
+      </div>
+      <div class="srv-row">
+        <div class="srv-n">04</div>
+        <div class="srv-b">
+          <h3>Адаптивная вёрстка</h3>
+          <p>Идеальное отображение на телефоне, планшете и компьютере. Без компромиссов между устройствами.</p>
+        </div>
+        <div class="srv-t">Mobile-first</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="sec">
+    <div class="port-head reveal">
+      <div>
+        <div class="s-tag">Работы</div>
+        <h2>Выполненные<br /><em>проекты</em></h2>
+      </div>
+      <a href="https://t.me/YOUR_TG" target="_blank" class="link-arr">Заказать похожий</a>
+    </div>
+    <div class="works reveal">
+
+      <!-- Maxweqq -->
+      <a href="https://artevhr.github.io/maxweqq/" target="_blank" class="wcard">
+        <div class="wthumb">
+          <div class="wthumb-inner">
+            <img src="maxweqq-cover.png" alt="Maxweqq Photography" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          </div>
+          <div class="whover"><span class="whover-t">Открыть сайт</span></div>
+        </div>
+        <div class="wmeta">
+          <div class="wmeta-top">
+            <span class="wname">Maxweqq — Photography</span>
+            <span class="wyear">2026</span>
+          </div>
+          <p class="wdesc">Портфолио-сайт для фотографа из Витебска. Минималистичный дизайн, видео-фон, галерея и форма записи.</p>
+          <div class="wtags">
+            <span class="wtag">Лендинг</span>
+            <span class="wtag">Портфолио</span>
+            <span class="wtag">Анимации</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Placeholder -->
+      <div class="wcard soon">
+        <div class="wthumb">
+          <div class="wthumb-inner">
+            <div class="t-soon"><span>Следующий проект</span></div>
+          </div>
+        </div>
+        <div class="wmeta">
+          <div class="wmeta-top">
+            <span class="wname">Ваш проект</span>
+            <span class="wyear">—</span>
+          </div>
+          <p class="wdesc">Здесь появится ваш сайт. Напишите — обсудим и реализуем.</p>
+          <div class="wtags"><span class="wtag">В процессе</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="sec">
+    <div class="reveal">
+      <div class="s-tag">Процесс</div>
+      <h2>Как<br /><em>работаем</em></h2>
+    </div>
+    <div class="proc-grid reveal">
+      <div class="proc-col">
+        <div class="pn">01</div>
+        <h3>Пишете мне</h3>
+        <p>Расскажите о проекте: что нужно, какой стиль нравится, бюджет. Отвечаю быстро.</p>
+      </div>
+      <div class="proc-col">
+        <div class="pn">02</div>
+        <h3>Обсуждаем</h3>
+        <p>Задаю вопросы, предлагаю решение, называю сроки. Всё прозрачно.</p>
+      </div>
+      <div class="proc-col">
+        <div class="pn">03</div>
+        <h3>Делаю</h3>
+        <p>Работаю, показываю прогресс. Вносим правки до тех пор, пока не понравится.</p>
+      </div>
+      <div class="proc-col">
+        <div class="pn">04</div>
+        <h3>Сдаю</h3>
+        <p>Передаю сайт, помогаю с размещением. Готовый рабочий продукт в ваших руках.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="s-tag reveal">Контакты</div>
+  <h2 class="reveal">Готовы<br /><em>начать?</em></h2>
+  <p class="cta-sub reveal">Напишите — обсудим ваш проект и я подскажу, как лучше его реализовать.</p>
+  <div class="cta-btns reveal">
+    <a href="https://t.me/YOUR_TG" target="_blank" class="cbtn tg">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-2.01 9.47c-.146.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.873.75z"/></svg>
+      Telegram
+    </a>
+    <a href="https://instagram.com/YOUR_IG" target="_blank" class="cbtn ig">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      Instagram
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">ARTVHR DEV</div>
+  <div class="fn">© 2026 — Веб-разработка</div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
